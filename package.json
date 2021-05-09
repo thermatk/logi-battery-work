@@ -1,0 +1,20 @@
+{
+  "name": "logi-battery-work",
+  "version": "1.0.0",
+  "description": "Logitech battery info on work laptop",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "rebuild": "electron-rebuild --force"
+  },
+  "author": "Ruslan Boitsov <thermatk@thermatk.com> (https://github.com/thermatk)",
+  "license": "GPL-3.0-or-later",
+  "devDependencies": {
+    "electron": "^11.0.2",
+    "electron-rebuild": "^2.3.2"
+  },
+  "dependencies": {
+    "node-hid": "^2.1.1-0",
+    "canvas-gauges": "https://github.com/Mikhus/canvas-gauges"
+  }
+}

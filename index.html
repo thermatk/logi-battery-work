@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Logitech Battery @ Work</title>
+    <!-- https://electronjs.org/docs/tutorial/security#csp-meta-tag -->
+    <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline';" />
+  </head>
+  <body>
+    <canvas data-type="radial-gauge" id="voltage-gauge" data-width="300" data-height="300" data-units="mV" data-title="Voltage" data-min-value="3300" data-max-value="4100" 
+    data-major-ticks="[3300,3400,3500,3600,3700,3800,3900,4000,4100]" data-minor-ticks="2" data-stroke-ticks="true" 
+    data-highlights='[ {"from": 3300, "to": 3650, "color": "rgba(255, 0, 0, .3)"},{"from": 3650, "to": 4100, "color": "rgba(0, 255, 0, .3)"} ]' 
+    data-ticks-angle="225" data-start-angle="67.5" data-color-major-ticks="#ddd" data-color-minor-ticks="#ddd" data-color-title="#eee" 
+    data-color-units="#ccc" data-color-numbers="#eee" data-color-plate="#222" data-border-shadow-width="0" data-borders="true" data-needle-type="arrow" 
+    data-needle-width="2" data-needle-circle-size="7" data-needle-circle-outer="true" data-needle-circle-inner="false" data-animation-duration="1500" 
+    data-animation-rule="linear" data-color-border-outer="#333" data-color-border-outer-end="#111" data-color-border-middle="#222" 
+    data-color-border-middle-end="#111" data-color-border-inner="#111" data-color-border-inner-end="#333" data-color-needle-shadow-down="#333" 
+    data-color-needle-circle-outer="#333" data-color-needle-circle-outer-end="#111" data-color-needle-circle-inner="#111" data-color-needle-circle-inner-end="#222" 
+    data-value-box-border-radius="0" data-color-value-box-rect="#222" data-color-value-box-rect-end="#333"></canvas>
+    
+    <div id="devicestate"></div>
+    <button id="updatetoggle">Trigger update</button>
+    <button id="devicelogtoggle">Toggle debug</button>
+
+    <canvas data-type="radial-gauge"  id="perc-gauge" data-width="300" data-height="300" data-units="%" data-min-value="0" data-start-angle="90"
+    data-ticks-angle="180" data-value-box="false" data-max-value="100" data-major-ticks="0,20,40,60,80,100" data-minor-ticks="2" data-stroke-ticks="true"
+    data-color-plate="#fff" data-border-shadow-width="0" data-borders="false" data-needle-type="arrow" data-needle-width="2"
+    data-needle-circle-size="7" data-needle-circle-outer="true" data-needle-circle-inner="false" data-animation-duration="1500" data-animation-rule="linear"></canvas>
+    <div>
+    <b>Regression:</b> 0.0000000025955081983333 * Math.pow(voltage, 4) - 0.0000390779442398669 * Math.pow(voltage, 3) + 0.220200303302581 * Math.pow(voltage, 2) - 550.202921127798 * voltage + 514241.158749987
+    </div>
+    <pre>
+    <div id="devicelog" style="display: none;"></div>
+    </pre>
+    <script>
+      require('canvas-gauges');
+      require('./scripts/app');
+    </script>
+
+  </body>
+</html>
